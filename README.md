@@ -1,5 +1,7 @@
 # czw
 
+Sprzątanie przed kongresem - wydawanie identyfikatorów na czwartkowy wieczór.
+
 ## Project setup
 ```
 npm install
