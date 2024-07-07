@@ -10,11 +10,6 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Imię i nazwisko kierowcy:</label>
-            <input class="form-control text-center" type="text" name="driver" v-model="driver"/>
-        </div>
-
-        <div class="mb-3">
             <label class="form-label">Numer telefonu kierowcy:</label>
             <input class="form-control text-center" type="tel" name="phone" v-model="phone"/>
         </div>
@@ -72,7 +67,6 @@ import { faThumbsUp, faFaceFrownOpen, faBroom, faSquareParking, faFaceFlushed } 
 
 const zbory = ref([])
 const zbor = ref("")
-const driver = ref("")
 const phone = ref("")
 const nrrej = ref("")
 const nrident = ref(undefined)
@@ -103,7 +97,6 @@ onMounted(() => {
 
 const canIssuing = computed(() => {
     return zbor.value.length 
-        && driver.value.length
         && phone.value.length
         && nrrej.value.length
         && nrident.value !== undefined
@@ -119,7 +112,6 @@ const onIssuing = () => {
         },
         body: JSON.stringify({
             zbor: zbor.value,
-            driver: driver.value,
             phone: phone.value,
             nr_rej: nrrej.value.toUpperCase(),
             nr_ident: nrident.value,
@@ -157,7 +149,6 @@ const onIssuing = () => {
 
 const onReset = () => {
     zbor.value = ""
-    driver.value = ""
     phone.value = ""
     nrrej.value = ""
     nrident.value = undefined

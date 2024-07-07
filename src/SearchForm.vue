@@ -56,9 +56,6 @@
         <div v-if="status === 200 && sinfo" class="info-container">
             <h5>Wyszukane informacje</h5>
             <div class="info">
-                <div class="text-muted">Kierowca:</div>
-                <div>{{ sinfo.driver }}</div>
-
                 <div class="text-muted">Nr telefonu:</div>
                 <div>{{ sinfo.phone }}</div>
 
