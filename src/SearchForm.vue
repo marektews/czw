@@ -33,6 +33,8 @@
             <div class="input-group">
                 <input 
                     class="form-control text-center force-uppercase" 
+                    id="pattern"
+                    autofocus
                     :type="searchType" 
                     v-model="pattern"
                 />
@@ -48,7 +50,7 @@
                     :disabled="pattern===''"
                     @click="onClearPattern"
                 >
-                    <FontAwesomeIcon :icon="faCircleXmark" />
+                    <FontAwesomeIcon :icon="faBroom" /> Wyczyść
                 </button>
             </div>
         </div>
@@ -69,10 +71,10 @@
                 <div>{{ issuedTime(sinfo.issued) }}</div>
             </div>
             <button 
-                class="btn btn-danger mt-3"
+                class="btn btn-secondary mt-3"
                 @click="onClear"
             >
-                <FontAwesomeIcon :icon="faBroom" /> Kasuj
+                <FontAwesomeIcon :icon="faChevronCircleLeft" /> Wyszukaj następny ...
             </button>
         </div>
 
@@ -86,7 +88,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faSearch, faBroom, faCircleXmark, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faBroom, faCircleInfo, faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 const searchMode = ref("nr_ident")
 const pattern = ref("")
@@ -146,12 +148,14 @@ const onClearPattern = () => {
     pattern.value = ""
     status.value = undefined
     error.value = ""
+    document.getElementById("pattern")?.focus()
 }
 
 const onClear = () => {
     sinfo.value = undefined
     pattern.value = ""
     status.value = undefined
+    document.getElementById("pattern")?.focus()
 }
 
 

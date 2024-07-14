@@ -35,7 +35,7 @@
             </button>
             <button class="btn btn-danger" @click="onReset">
                 <FontAwesomeIcon :icon="faBroom" />
-                Reset
+                Wyczyść formularz
             </button>
         </div>
 
